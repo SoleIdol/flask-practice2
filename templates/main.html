@@ -1,0 +1,45 @@
+<!-- author:Sole_idol -->
+<!-- filename: main.html -->
+<!-- datetime:2020/8/18 15:45 -->
+{% extends 'base1.html' %}
+
+{% block title %}
+    <title>主页面</title>
+    <style>
+        h1 {
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        table {
+            border: 1px solid gray;
+            margin: 50px auto;
+            background-color: #eeeeee;
+        }
+    </style>
+{% endblock %}
+{% block nav %}
+    <h1>欢迎来到用户信息页面</h1>
+{% endblock %}
+
+{% block content %}
+    <table class="table table-hover">
+        <tr class="success">
+            <th>id</th>
+            <th>name</th>
+            <th>gender</th>
+            <th>chinese</th>
+            <th>math</th>
+        </tr>
+        {% for stu in stus %}
+            <tr>
+                <td>{{ stu.0 }}</td>
+                <td><a href="/user_info/?sid={{ stu.0 }}">{{ stu.1.name }}</a></td>
+                <td>{{ stu.1.gender }}</td>
+                <td>{{ stu.1.chinese }}</td>
+                <td>{{ stu.1.math }}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+{% endblock %}
